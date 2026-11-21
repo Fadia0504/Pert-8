@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "62565170072",
+    "project_id": "myproject-b95c2",
+    "storage_bucket": "myproject-b95c2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:62565170072:android:ff3057d51517294d5b49ed",
+        "android_client_info": {
+          "package_name": "com.example.latihan_week8"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "62565170072-lufdv1uvs5uub4kftfoo6fao4vns7bnt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoxWW785LdcI-a2edxgfud18J1TkeW5Bg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "62565170072-lufdv1uvs5uub4kftfoo6fao4vns7bnt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
