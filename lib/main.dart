@@ -1,30 +1,29 @@
-
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  // Inisialisasi Firebase
+  // Inisialisasi menggunakan opsi yang di-generate sesuai platform
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Center(
-          child: Text('Firebase Berhasil Terhubung!'),
-        ),
+    return MaterialApp(
+      title: 'Firebase Auth Simple',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
       ),
+      home: const LoginScreen(),
     );
   }
 }
@@ -39,6 +38,18 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+  Future<void> _login() async {
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim(),
+      );
+      // Jika berhasil, AuthWrapper otomatis mendeteksi perubahan stream
+    } on FirebaseAuthException catch (e) {
+      debugPrint(e.message);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 16),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: _login,
                 child: const Text('Login'),
               ),
             ],
