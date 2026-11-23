@@ -14,12 +14,13 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Firebase Auth Simple',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
 }
 
 class AuthWrapper extends StatelessWidget {
-  const AuthWrapper({Key? key}) : super(key: key);
+  const AuthWrapper({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +56,7 @@ class AuthWrapper extends StatelessWidget {
 }
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -147,7 +148,7 @@ class _LoginScreenState extends State<LoginScreen> {
 class UserInfoScreen extends StatelessWidget {
   final User user;
 
-  const UserInfoScreen({Key? key, required this.user}) : super(key: key);
+  const UserInfoScreen({super.key, required this.user});
 
   Future<void> _logout() async {
     await FirebaseAuth.instance.signOut();
