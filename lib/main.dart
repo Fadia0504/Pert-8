@@ -123,11 +123,22 @@ class UserInfoScreen extends StatelessWidget {
 
   const UserInfoScreen({Key? key, required this.user}) : super(key: key);
 
+  Future<void> _logout() async {
+    await FirebaseAuth.instance.signOut();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Dashboard User'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: _logout,
+            tooltip: 'Logout',
+          ),
+        ],
       ),
       body: Center(
         child: Padding(
