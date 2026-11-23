@@ -23,7 +23,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LoginScreen(),
+      // Menggunakan StreamBuilder untuk mendeteksi status login
+      home: const AuthWrapper(),
     );
   }
 }
